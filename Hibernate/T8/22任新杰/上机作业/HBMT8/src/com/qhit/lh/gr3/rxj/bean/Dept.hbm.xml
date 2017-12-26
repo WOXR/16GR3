@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.qhit.lh.gr3.rxj.bean.Dept" table="t_dept">
+		<id name="deptId" column="deptId" type="integer">
+			<generator class="native"/>
+		</id>
+		<property name="deptName" column="deptName" type="string"/>
+		<property name="address" column="address" type="string"/>
+		
+		<set name="emps" lazy="false" cascade="save-updates" inverse="true">
+			<key column="deptId"/>
+			<one-to-many class="com.qhit.lh.gr3.rxj.bean.Emp"/>
+		</set>
+	</class>
+</hibernate-mapping>
