@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.qhit.gr3.rxj.bean.User" table="t_user0" schema="dbo" catalog="db_user">
+		<id name="uid" type="java.lang.Integer">
+			<column name="uid"/>
+			<generator class="native"/>
+		</id>
+		<property name="uname" type="java.lang.String">
+			<column name="uname"/>
+		</property>
+		<property name="sex" type="java.lang.String">
+		<column name="sex"/>
+		</property>
+		<property name="workid" type="java.lang.Integer" insert="false" update="false">
+			<column name="workid"/>
+		</property>
+		
+		<one-to-one name="account" class="com.qhit.gr3.rxj.bean.Account" cascade="all"/>
+		<many-to-one name="work" class="com.qhit.gr3.rxj.bean.Work" column="workid" lazy="false" fetch="join"/>
+	</class>
+</hibernate-mapping>
