@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.qhit.lh.gr3.rxj.bean.Role" table="t_role" schema="dbo" catalog="db_user">
+        <id name="rid" type="java.lang.Integer">
+            <column name="rid" />
+            <generator class="native"></generator>
+        </id>
+        <property name="rname" type="java.lang.String">
+            <column name="rname" not-null="true" />
+        </property>
+        <property name="memo" type="java.lang.String">
+            <column name="memo" />
+        </property>
+        <set name="users"  table="user_role" schema="dbo" catalog="db_user" fetch="join" lazy="false">
+            <key>
+                <column name="rid" />
+            </key>
+            <many-to-many entity-name="com.qhit.lh.gr3.rxj.bean.User">
+                <column name="uid" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
