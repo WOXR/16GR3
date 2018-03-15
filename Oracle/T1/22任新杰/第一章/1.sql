@@ -1,0 +1,14 @@
+SQL> show sga;
+
+Total System Global Area  778387456 bytes                                       
+Fixed Size                  1374808 bytes                                       
+Variable Size             243271080 bytes                                       
+Database Buffers          528482304 bytes                                       
+Redo Buffers                5259264 bytes                                       
+SQL> select name from v$database;
+
+NAME                                                                            
+------------------                                                              
+ORCL                                                                            
+
+SQL> spool off;
